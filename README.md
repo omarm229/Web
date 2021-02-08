@@ -1,2 +1,2 @@
 # Web
-Web application with restful webservices enabled
+Grocery shopping web application with restful webservices enabled
