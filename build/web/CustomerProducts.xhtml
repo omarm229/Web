@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Products</title>
+    </h:head>
+    <h:body style="background-color: #abcdef">
+        <h1>Products</h1>
+        <h:form>
+            <p>Select Store: </p>
+            <h:selectOneMenu value="#{product.id}">
+                    <f:selectItems value="#{store.viewStore()}" var="s"
+                                   itemLabel="#{s.name}" itemValue="#{s.id}"/>
+            </h:selectOneMenu>
+            <p><h:commandButton type="submit" value="Select" action="#{product.viewAllProducts()}" />
+                </p>
+            <h:panelGrid columns="5">
+                <h:outputText value="Product Name" />
+                <h:outputText value="Price" />
+                <h:outputText value="Ammount Available" />
+                <h:outputText value="Product Description" />
+                <h:outputText value="Add item to cart" />
+            </h:panelGrid>
+                 
+            <ui:repeat  value="#{product.viewAllProducts()}" var="p">
+            <h:panelGrid columns="5">
+                <h:outputText value="#{p.name}" />
+                <h:outputText value="#{p.price}" />
+                <h:outputText value="#{p.numAvailable}" />
+                <h:outputText value="#{p.description}" />
+                <h:commandButton type="submit" value="Add to cart" action="#{order.createOrderLine(customer.getCustId(), p.id)}" />
+                                              
+            </h:panelGrid>
+            </ui:repeat>
+            <p><h:commandButton type="submit" value="Home" action="custHome?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Orders" action="CustomerOrders?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Cart" action="cart?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Account" action="CustomerAccount?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Logout" action="#{custLogin.logOff()}" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+

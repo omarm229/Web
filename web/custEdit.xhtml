@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Account</title>
+    </h:head>
+    <h:body style="background-color: #abcdef">
+        <h1>Account Details</h1>
+        <h:form>
+             <p>Select Store: </p>
+            <h:panelGrid columns="2">
+                <p>Username: </p>
+                <h:inputText value="#{customer.username}" />
+                  
+                <p>Name: </p>
+                <h:inputText value="#{customer.name}" />
+                
+                <p>Address: </p>
+                <h:inputText value="#{customer.address}" />
+                
+                <p>Country: </p>
+                <h:inputText value="#{customer.country}" />
+                
+                <p>Postcode: </p>
+                <h:inputText value="#{customer.postCode}" />
+                
+                <p>Password: </p>
+                <h:inputText value="#{customer.password}" />
+                                               
+            </h:panelGrid>
+            <p><h:commandButton type="submit" value="Done" action="#{customer.editCustomer()}" />
+            </p>
+            <p><h:commandButton type="submit" value="Home" action="custHome?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Orders" action="CustomerOrders?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Cart" action="cart?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Products" action="CustomerProducts?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Logout" action="#{custLogin.logOff()}" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Staff</title>
+    </h:head>
+    <h:body style="background-color: #abcdef">
+        <h1>Staff</h1>
+        <h2>Login</h2>
+        <h:form>
+            
+                  
+            <h:panelGrid columns="2">
+                <p>Select Store: </p>
+                <h:selectOneMenu value="#{staffLogin.store}">
+                    <f:selectItems value="#{store.viewStore()}" var="s"
+                                   itemLabel="#{s.name}" itemValue="#{s.id}"/>
+                </h:selectOneMenu>
+                 
+                <p>Username: </p>
+                <h:inputText value="#{staff.username}"
+                             required="true"
+                             requiredMessage="Please enter your username" />
+
+                <p>Password: </p>
+                <h:inputSecret value="#{staff.password}"
+                             required="true"
+                             requiredMessage="Please enter your password" />
+            </h:panelGrid>
+            <p><h:commandButton type="submit" value="Log in" action="#{staffLogin.loginStaff(staff.username, staff.password)}" />
+            </p>
+            <p><h:commandButton type="submit" value="Register" action="staffRegister?faces-redirect=true" immediate="true" />
+            </p>
+            <p><h:commandButton type="submit" value="Back" action="index?faces-redirect=true" immediate="true" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,11 @@
+body
+{
+    background-color: #abcdef;
+}
+
+.errorMessage
+{
+    padding-left: 5px;
+    color: #ff3333;
+    font-size: large;
+}

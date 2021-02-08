@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Welcome to the team</title>
+    </h:head>
+    <h:body style="background-color: #abcdef">
+        <h1>Welcome to the team</h1>
+        <h2>Register</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+               <p>Select Store: </p>
+               <h:selectOneMenu value="#{staffRegister.storeID}">
+                    <f:selectItems value="#{store.viewStore()}" var="s"
+                                   itemLabel="#{s.name}" itemValue="#{s.id}"/>
+                </h:selectOneMenu>
+                
+                <p><b>Your name:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{staffRegister.name}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please enter your name" />
+                
+                <p><b>Phone Number:</b><br/>(max. 11 characters)</p>
+                <h:inputText value="#{staffRegister.phoneNumber}"
+                             maxlength="11" 
+                             required="true"
+                             requiredMessage="Please enter your phone number" />
+                
+                <p><b>Job applicant ID:</b><br/>(max. 8 characters)</p>
+                <h:inputText value="#{staffRegister.jobApplicantID}"
+                             maxlength="8" 
+                             required="true"
+                             requiredMessage="Please enter your job applicant ID" />
+
+                <p><b>Username:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{staffRegister.userName}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please enter your username" />
+
+                <p><b>Password:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{staffRegister.password1}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please enter your password" />
+
+                <p><b>Confirm password:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{staffRegister.password2}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please confirm your password" />
+            </h:panelGrid>
+            <p><h:commandButton value="Register" action="#{staffRegister.register()}" />&nbsp;&nbsp;
+                <h:commandButton type="reset" value="Reset" />&nbsp;&nbsp;
+                <h:commandButton type="submit" value="Cancel" action="staffLogin?faces-redirect=true" immediate="true" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+

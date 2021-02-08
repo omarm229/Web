@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Welcome</title>
+    </h:head>
+    <h:body style="background-color: #abcdef">
+        <h1>Welcome</h1>
+        <h2>Register</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                
+                <p><b>Your name:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{custRegister.name}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please enter your name" />
+                
+                <p><b>Country you currently reside in:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{custRegister.country}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please enter country of residence" />
+                
+                <p><b>Address:</b><br/>(max. 50 characters)</p>
+                <h:inputText value="#{custRegister.address}"
+                             maxlength="50" 
+                             required="true"
+                             requiredMessage="Please enter your current address" />
+                
+                <p><b>Post Code:</b><br/>(max. 8 characters)</p>
+                <h:inputText value="#{custRegister.postCode}"
+                             maxlength="8" 
+                             required="true"
+                             requiredMessage="Please enter your post code" />
+
+                <p><b>Username:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{custRegister.userName}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please enter your username" />
+
+                <p><b>Password:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{custRegister.password1}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please enter your password" />
+
+                <p><b>Confirm password:</b><br/>(max. 20 characters)</p>
+                <h:inputText value="#{custRegister.password2}"
+                             maxlength="20" 
+                             required="true"
+                             requiredMessage="Please confirm your password" />
+            </h:panelGrid>
+            <p><h:commandButton value="Submit" action="#{custRegister.register()}" />&nbsp;&nbsp;
+                <h:commandButton type="reset" value="Reset" />&nbsp;&nbsp;
+                <h:commandButton type="submit" value="Cancel" action="custLogin?faces-redirect=true" immediate="true" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+

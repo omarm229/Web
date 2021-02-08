@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Account Manager</title>
+    </h:head>
+    <h:body style="background-color: #abcdef">
+        <h1>Customer Accounts</h1>
+        <h:form>
+            
+             <h:panelGrid columns="5">
+                <h:outputText value="Name" />
+                <h:outputText value="User Name" />
+                <h:outputText value="Postcode" />
+                <h:outputText value="Address" />
+                <h:outputText value="Country" />
+            </h:panelGrid>
+            
+            <ui:repeat  value="#{customer.viewAllCustomers()}" var="c">
+            <h:panelGrid columns="6">
+                <h:outputText value="#{c.name}" />
+                <h:outputText value="#{c.userName}" />
+                <h:outputText value="#{c.postCode}" />
+                <h:outputText value="#{c.address}" />
+                <h:outputText value="#{c.country}" />
+                
+            </h:panelGrid>
+            </ui:repeat>
+            <h:commandButton value="Delete" action="#{customer.deleteCustomer(1)}"/>
+            <h:panelGrid columns="3">
+                <h:outputText value="Name" />
+                <h:outputText value="User Name" />
+                <h:outputText value="Phone Number" />
+            </h:panelGrid>
+            <ui:repeat  value="#{staff.viewAllStaff(staffLogin.store)}" var="s">
+            <h:panelGrid columns="4">
+                <h:outputText value="#{s.name}" />
+                <h:outputText value="#{s.userName}" />
+                <h:outputText value="#{s.phoneNumber}" />
+                
+            </h:panelGrid>
+            </ui:repeat>
+            <h:commandButton value="Delete" action="#{staff.deleteStaff(1)}"/>
+                
+            
+            <p><h:commandButton type="submit" value="Home" action="staffHome?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Products" action="StaffProducts?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="View Sales" action="sales?faces-redirect=true" />
+            </p>
+            <p><h:commandButton type="submit" value="Account" action="#{staff.setId()}" />
+            </p>
+            <p><h:commandButton type="submit" value="Logout" action="#{staffLogin.logOff()}" />
+            </p>
+            <p><h:commandButton type="submit" value="Logout" action="#{staffLogin.logOff()}" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+
